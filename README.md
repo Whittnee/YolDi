@@ -1,5 +1,42 @@
-# Vue 3 + TypeScript + Vite
+# Интерактивное приложение «Личный Профиль»
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Интерактивное [приложение](https://whittnee.github.io/YolDi/), позволяющее создавать, редактировать и просматривать чужие профили.
 
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+![alt text](/public/README.jpg)
+
+## Структура проекта
+
+- YolDi - текущий репозиторий
+
+## Функциональность 
+
+- Регистрация и вход в систему с валидацией форм
+- Просмотр собственного и чужих профилей
+- Редактирование данных профиля, загрузка изображений
+- Динамические маршруты (`/profile/:id`)
+
+## Выполненные задачи
+
+- Спроектировал архитектуру приложения по FSD-подходу
+- Имплементировал автоматизированное e2e-тестирование через Cypress
+- Настроил адаптивную верстку под различные разрешения
+- Организовал маршрутизацию с Vue Router и динамическими страницами
+
+## Технологии 
+
+- Vue, TypeScript, Pinia, Vite, Cypress
+
+## Возможные проблемы
+
+- Долгие запросы или их отклонение при загрузке изображений свыше 2МБ
+- Ограничение запросов на российском регионе
+
+## Инструкция по запуску
+
+Чтобы запустить приложение, необходимо:
+1. Склонировать репозиторий:  
+```git clone https://github.com/Whittnee/YolDi.git```
+2. Установить все зависимости:  
+```yarn или npm i```
+3. Теперь можно запустить приложение:  
+```yarn dev или npm run dev```
