@@ -4,17 +4,18 @@ import Name from "@/shared/ui/name/ui/Name.vue";
 import { useAttrs } from "vue";
 
 defineProps<{ name: string; avatarUrl?: string; email: string }>();
-const attrs = useAttrs()
-
+const attrs = useAttrs();
 </script>
 
 <template>
   <div class="userCard" v-bind="attrs">
-    <div class="user">
+    <div>
       <Avatar :name="name" :avatar-url="avatarUrl" size="normal" :hover="false" />
-      <Name :name="name" size="normal" />
     </div>
-    <span class="email">{{ email }}</span>
+    <div class="info">
+      <Name :name="name" size="normal" />
+      <span class="email">{{ email }}</span>
+    </div>
   </div>
 </template>
 
@@ -23,19 +24,20 @@ const attrs = useAttrs()
   display: flex;
   flex-direction: row;
   max-width: 800px;
+  gap: 20px;
   width: 100%;
   align-items: center;
+}
+
+.info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
   justify-content: space-between;
 }
 
-.user {
-  display: flex;
-  flex-direction: row;
-  gap: 20px;
-  align-items: center;
-}
-
-.user > span {
+.info > span {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -47,5 +49,12 @@ const attrs = useAttrs()
   font-weight: 400;
   line-height: 160%;
   color: #838383;
+}
+
+@media (width <= 425px) {
+  .info {
+    flex-direction: column;
+    align-items: start;
+  }
 }
 </style>

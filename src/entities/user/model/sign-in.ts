@@ -11,8 +11,9 @@ export const useSignInStore = defineStore("signIn", {
     async signIn(body: { email: string; password: string }) {
       this.isLoading = true;
       try {
+        this.error = null;
         const response = await signIn(body);
-        if (!response.value) throw new Error("Неправильный email или пароль!");
+        if (!response.value) throw new Error("Неправильный email или пароль");
         localStorage.setItem("accessToken", response.value);
         const profile = useProfileStore();
         profile.fetchProfile()

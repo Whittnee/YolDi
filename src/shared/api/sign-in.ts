@@ -1,6 +1,6 @@
 import { api } from "@/shared/api";
 
-export const login = async ({
+export const signIn = async ({
   email,
   password,
 }: {

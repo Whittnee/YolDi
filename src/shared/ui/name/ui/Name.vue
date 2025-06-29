@@ -1,19 +1,20 @@
 <script setup lang="ts">
+import { useAttrs } from 'vue';
 
-defineProps<{ name: string; size: 'small' | 'normal' | 'big' }>()
+defineProps<{ name: string | undefined; size: "small" | "normal" | "big" }>();
+const attrs = useAttrs();
 
 </script>
 
 <template>
-  <span :class="['name', size]">
+  <span :class="['name', size]" v-bind="attrs">
     {{ name }}
   </span>
 </template>
 
 <style scoped>
-
 .name {
-  color: #000
+  color: var(--main-color);
 }
 
 .name.small {
@@ -33,5 +34,4 @@ defineProps<{ name: string; size: 'small' | 'normal' | 'big' }>()
   font-size: 30px;
   line-height: 140%;
 }
-
 </style>

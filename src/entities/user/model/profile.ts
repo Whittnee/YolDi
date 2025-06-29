@@ -28,7 +28,7 @@ export const useProfileStore = defineStore("profile", {
         const response = await patchProfile(body);
         this.user = response;
         const user = useUserStore();
-        user.fetchUser(body.slug);
+        user.fetchUser(user.user.slug);
       } catch {
         console.error("Ошибка, не удалось обновить профиль!");
       }

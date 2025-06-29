@@ -1,12 +1,9 @@
 <script setup lang="ts">
-const header = document.querySelector("header");
-const footer = document.querySelector("footer")
-const height = `calc(100vh - ${header?.offsetHeight || 0}px - ${footer?.offsetHeight || 0}px)`
 
 </script>
 
 <template>
-  <section class="notFound" :style="{height: height}">
+  <section class="notFound">
     <h2 class="h2">
       404
     </h2>
@@ -25,7 +22,7 @@ const height = `calc(100vh - ${header?.offsetHeight || 0}px - ${footer?.offsetHe
 }
 
 .h2 {
-  color: #000;
+  color: var(--main-color);
   font-weight: normal;
   font-size: clamp(5.625rem, 3.8122rem + 7.7348vw, 10rem);
   line-height: 100%;
@@ -33,7 +30,7 @@ const height = `calc(100vh - ${header?.offsetHeight || 0}px - ${footer?.offsetHe
 
 .p {
   text-transform: uppercase;
-  color: #000;
+  color: var(--main-color);
   font-weight: normal;
   font-size: clamp(2.1875rem, 1.0221rem + 4.9724vw, 5rem);
   line-height: 100%;

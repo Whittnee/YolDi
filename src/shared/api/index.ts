@@ -1,7 +1,12 @@
 import { API_URL } from "@/shared/config/env"
 
-const checkResponse = <T>(res: Response): Promise<T> => {
-  return res.ok ? res.json() : res.json().catch(err => Promise.reject(err))
+export const checkResponse = async <T>(res: Response): Promise<T> => {
+  const response = await res.json();
+
+  if(!res.ok) {
+    throw new Error(response?.message || 'Ошибка запроса')
+  }
+  return response
 }
 
 type Method = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE'
