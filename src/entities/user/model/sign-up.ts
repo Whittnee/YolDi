@@ -11,8 +11,9 @@ export const useSignUpStore = defineStore("signUp", {
     async signUp(body: { email: string; name: string; password: string }) {
       this.isLoading = true;
       try {
+        this.error = null
         const response = await signUp(body);
-        if (!response.value) throw new Error("Не удалось создать аккаунт!");
+        if (!response.value) throw new Error("Не удалось создать аккаунт");
         localStorage.setItem("accessToken", response.value);
         const profile = useProfileStore();
         profile.fetchProfile()

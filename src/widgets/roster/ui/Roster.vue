@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useUsersStore } from "@/entities/user/model/users";
-import UserCard from "@/entities/user/ui/UserCard.vue";
+import UserCardFeature from "@/features/user-card-feature/ui/UserCardFeature.vue";
 const users = useUsersStore();
 </script>
 
@@ -8,11 +8,12 @@ const users = useUsersStore();
   <section class="section">
     <h2 class="h2">Список аккаунтов</h2>
     <ul>
-      <li v-for="user in users.users" class="li" :key="user.name">
-        <UserCard
+      <li v-for="user in users.users" data-testid="userCard" class="li" :key="user.name">
+        <UserCardFeature
           :avatar-url="user.image?.url"
           :name="user.name"
           :email="user.email"
+          :slug="user.slug"
         />
       </li>
     </ul>
@@ -24,8 +25,9 @@ const users = useUsersStore();
   display: flex;
   flex-direction: column;
   gap: 30px;
-  max-width: 800px;
+  max-width: 850px;
   width: 100%;
+  padding: 0 20px;
 }
 
 .h2 {

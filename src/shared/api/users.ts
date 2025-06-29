@@ -1,8 +1,9 @@
 import { api } from "@/shared/api"
 import type { TUser } from "@/shared/types/user"
 
-export const getUser = async (id: string): Promise<TUser> => {
-  return api<TUser>(`/user/${id}`, {
+
+export const getUsers = async (): Promise<TUser[]> => {
+  return api<TUser[]>("/user", {
     method: 'GET',
     withAuth: false
   })
